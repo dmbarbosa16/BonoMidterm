@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+    <title>Calentamiento Global Ultimos 10 años</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+
+	    html, body {
+		    margin: 0;
+		    padding: 0;
+		    height: 100%;
+		    width: 100%;
+	    }
+
+	    text {
+		    font-family: arial;
+		    font-size: 12px;
+	    }
+
+
+	    path.line {
+		    fill: none;
+		    stroke: red;
+		    stroke-width: 3px;
+	    }
+
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: slategray;
+		  shape-rendering: crispEdges;
+		}
+    </style>
+  </head>
+  <body>
+     <font color="green" size="11px">Calentamiento Global</font><br/>
+   Podemos observar su comportamiento a través del incremento de las temperaturas promedio anuales.<br/>
+   Autor: Diana Milena Barbosa <br/>
+<script type="text/javascript">
+
+var margin = {left: 50, right: 20, top: 20, bottom: 50 };
+
+var width = 960 - margin.left - margin.right;
+var height = 500 - margin.top - margin.bottom;
+
+var xNudge = 50;
+var yNudge = 20;
+
+var minTemp = 0;
+var maxTemp = 0;
+var minDate = 0;
+var maxDate = 0;
+	
+d3.csv("GLB.Ts+dSST.csv", function(d) {
+		return {
+			year : d.Year,
+			temperature : d["J-D"]
+		};
+	}).then(function(data) {
+		console.log(data);
+
+		minTemp = d3.min(data, function(d) { return d.temperature; });
+	    maxTemp = d3.max(data, function(d) { return d.temperature; });
+	    minDate = d3.min(data, function(d) {return d.year; });
+		maxDate = d3.max(data, function(d) { return d.year; });
+
+		minTemp = -0.49
+		console.log(minTemp);
+		console.log(maxTemp);
+		console.log(minDate);
+		console.log(maxDate);
+		
+		var y = d3.scaleLinear()
+					.domain([minTemp,maxTemp])
+					.range([height,0]);
+
+					
+		var x = d3.scaleLinear()
+					.domain([minDate,maxDate])
+					.range([0,width]);
+
+
+		var yAxis = d3.axisLeft(y);
+
+		var xAxis = d3.axisBottom(x);
+
+		var line = d3.line()
+			.x(function(d){ return x(d.year); })
+			.y(function(d){ return y(d.temperature); })
+			.curve(d3.curveCardinal);
+				
+		var svg = d3.select("body").append("svg").attr("id","svg").attr("height","100%").attr("width","100%");
+		var chartGroup = svg.append("g").attr("class","chartGroup").attr("transform","translate("+xNudge+","+yNudge+")");
+
+		chartGroup.append("path")
+			.attr("class","line")
+			.attr("d",function(d){ return line(data); })
+
+
+		chartGroup.append("g")
+			.attr("class","axis x")
+			.attr("transform","translate(0,"+height+")")
+			.call(xAxis);
+
+		chartGroup.append("g")
+			.attr("class","axis y")
+			.call(yAxis);
+
+
+	});
+	
+</script>
+  </body>
+</html>

@@ -20,6 +20,15 @@ Acción: Compare                Target: Trends
 Tarea Secundaria: Identificar la características de la temperatura global resumiendo los incrementos o decrementos de la temperatura global desde 1880 hasta 2017. 
 Acción: Summarize                Target: Features
 
+Insights:
+
+1. EL mayor incremento de temperatura se encuentra en los primeros meses del año y los menores en los meses de junio y julio. Lo anterior contrario a las estaciones.
+
+2. En el transcurso de los últimos 10  años se observa mayor incremento de la temperatura. Presenta un comportamiento particular el año  2015 que muestra la tendencia más alta.
+
+3. Se observa un incremento más acelerado desde 1965.
+
+
 Link: Link: https://dmbarbosa16.github.io/BonoMidterm/index.html
 
 

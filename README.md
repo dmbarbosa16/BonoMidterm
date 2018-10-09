@@ -20,3 +20,7 @@ Acción: Compare                Target: Trends
 Tarea Secundaria: Identificar la características de la temperatura global resumiendo los incrementos o decrementos de la temperatura global desde 1880 hasta 2017. 
 Acción: Summarize                Target: Features
 
+Link: Link: https://dmbarbosa16.github.io/BonoMidterm/index.html
+
+
+

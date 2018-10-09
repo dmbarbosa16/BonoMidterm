@@ -14,7 +14,7 @@ Temperatura mensual: –Ordinal – Cuantitativo – Divergente
 
 
 
-Tarea Principal: Identificar si existe incremento y si se acelera con el paso de los años, comparando las temperaturas de cada uno de los meses de los últimos 10 años, para . 
+Tarea Principal: Identificar si existe incremento y si se acelera con el paso de los años, comparando las temperaturas de cada uno de los meses de los últimos 10 años. 
 Acción: Compare                Target: Trends 
 
 Tarea Secundaria: Identificar la características de la temperatura global resumiendo los incrementos o decrementos de la temperatura global desde 1880 hasta 2017. 

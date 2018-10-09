@@ -42,7 +42,7 @@
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.temperature); });
 	
-		d3.csv("GLB.Ts+dSST_v3.csv", type, function(error, data) {
+		d3.csv("https://raw.githubusercontent.com/dmbarbosa16/BonoMidterm/master/GLB.Ts%2BdSST_v3.csv", type, function(error, data) {
 			if(error) throw error;
 						
 			var cities = data.columns.slice(130).map(function(id) {
